@@ -1,0 +1,8 @@
+<launch>
+    <node pkg="juno_sketch_tutor"
+          type="sketch_game_node.py"
+          name="sketch_game_node"
+          output="screen">
+        <param name="image_topic" value="/usb_cam/image_raw"/>
+    </node>
+</launch>

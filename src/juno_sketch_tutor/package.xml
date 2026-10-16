@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>juno_sketch_tutor</name>
+  <version>1.0.0</version>
+  <description>
+    DrawBot: AI-powered interactive sketch recognition robot built on the Juno platform
+    running ROS Noetic (WQF7010 Robotics and Automation, Universiti Malaya, Group 11).
+  </description>
+
+  <maintainer email="774843262-svg@users.noreply.github.com">Jiang Xianbo</maintainer>
+  <license>MIT</license>
+
+  <author>Li Lingyi</author>
+  <author>Li Chenxue</author>
+  <author>Du Jiaxue</author>
+  <author>Jiang Xianbo</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>cv_bridge</build_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <build_depend>std_msgs</build_depend>
+
+  <build_export_depend>cv_bridge</build_export_depend>
+  <build_export_depend>rospy</build_export_depend>
+  <build_export_depend>sensor_msgs</build_export_depend>
+  <build_export_depend>std_msgs</build_export_depend>
+
+  <exec_depend>cv_bridge</exec_depend>
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>rospkg</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>usb_cam</exec_depend>
+  <exec_depend>image_view</exec_depend>
+
+  <export>
+  </export>
+</package>

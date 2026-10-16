@@ -1,0 +1,42 @@
+<launch>
+    <!-- USB camera device -->
+    <arg name="video_device" default="/dev/video0" />
+
+    <!-- Image topic published by usb_cam -->
+    <arg name="image_topic" default="/usb_cam/image_raw" />
+
+    <!-- Model and class files -->
+    <arg name="model_path" default="$(find juno_sketch_tutor)/models/drawing_classifier.h5" />
+    <arg name="classes_path" default="$(find juno_sketch_tutor)/config/classes.txt" />
+
+    <!-- Speech output -->
+    <arg name="use_espeak" default="true" />
+    <arg name="debug_dir" default="" />
+
+    <!-- Start USB camera -->
+    <node pkg="usb_cam"
+          type="usb_cam_node"
+          name="usb_cam"
+          output="screen">
+
+        <param name="video_device" value="$(arg video_device)" />
+        <param name="image_width" value="640" />
+        <param name="image_height" value="480" />
+        <param name="pixel_format" value="yuyv" />
+        <param name="camera_frame_id" value="usb_cam" />
+        <param name="io_method" value="mmap" />
+    </node>
+
+    <!-- Start sketch game node -->
+    <node pkg="juno_sketch_tutor"
+          type="sketch_game_node.py"
+          name="sketch_game_node"
+          output="screen">
+
+        <param name="image_topic" value="$(arg image_topic)" />
+        <param name="model_path" value="$(arg model_path)" />
+        <param name="classes_path" value="$(arg classes_path)" />
+        <param name="use_espeak" value="$(arg use_espeak)" />
+        <param name="debug_dir" value="$(arg debug_dir)" />
+    </node>
+</launch>
